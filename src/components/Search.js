@@ -14,10 +14,13 @@ const Search = ({ countries }) => {
   )
 
   return (
-    <div>
-      search countries
-      <input type="text" onChange={handleChange} />
-      <Region filter={filter} />
+    <div className='search'>
+      <div className='search--box'>
+        <input type="text" placeholder='🔍 search for a country...' onChange={handleChange} />
+      </div>
+      <div>
+        <Region filter={filter} />
+      </div>
     </div>
   )
 }
