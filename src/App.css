@@ -1,3 +1,15 @@
+body{
+  margin: 0px;
+}
+
+.nav{
+  display: flex;
+  height: 64px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 5px 50px 1px rgba(0,0,0,0.10);
+}
+
 .container{
   display: flex;
   flex-wrap: wrap;
