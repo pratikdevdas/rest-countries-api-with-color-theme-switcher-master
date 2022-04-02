@@ -9,8 +9,8 @@ import {
 import Search from './components/Search'
 
 
+const [countries, setcountries] = useState([])
 export const Base = () => {
-  const [countries, setcountries] = useState([])
 
   useEffect(() => {
     axios
