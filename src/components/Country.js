@@ -25,7 +25,7 @@ const Country = ({ countries }) => {
         capital{singleCountryArray.capital}
         topleveldomain{singleCountryArray.tld[0]}
       {/* currency{singleCountryArray.currencies[0].name} */}
-      {/* languages{singleCountryArray.laguages.spa} */}
+      languages{singleCountryArray.languages.spa}
       <div>botder countries{singleCountryArray.borders}</div>
     </div>
   )
