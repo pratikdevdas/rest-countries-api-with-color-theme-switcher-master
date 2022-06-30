@@ -1,0 +1,11 @@
+.countries{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: auto;
+}
+
+.box{
+    width: 280px;
+    border-radius: 50px;
+}
