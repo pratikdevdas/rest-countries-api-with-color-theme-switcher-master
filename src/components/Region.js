@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ShowRegions } from './Toggle'
 import Countries from './Countries'
-
+import './Region.css'
 const Region = ({ filter }) => {
 
   const [regionName, setRegionName] = useState('')
@@ -11,7 +11,7 @@ const Region = ({ filter }) => {
   return(
     <>
       <ShowRegions buttonLabel='show' buttonLabel2='hide'>
-        <div>
+        <div className='filter--options'>
           <button onClick={() => setRegionName('america')}>AMERICA</button>
           <button onClick={() => setRegionName('africa')}>AFRICA</button>
           <button onClick={() => setRegionName('asia')}>ASIA</button>
@@ -19,7 +19,7 @@ const Region = ({ filter }) => {
           <button onClick={() => setRegionName('oceania')}>OCEANIA </button>
         </div>
       </ShowRegions>
-      <div className="container">
+      <div className="country-container">
         <Countries region={region}/>
       </div></>
   )

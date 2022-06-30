@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Region from './Region'
-
+import './Search.css'
 const Search = ({ countries }) => {
   const [search, setsearch] = useState('')
 
@@ -18,7 +18,7 @@ const Search = ({ countries }) => {
       <div className='search--box'>
         <input type="text" placeholder='🔍 search for a country...' onChange={handleChange} />
       </div>
-      <div>
+      <div >
         <Region filter={filter} />
       </div>
     </div>

@@ -1,10 +1,10 @@
 import React from 'react'
-
+import './Navbar.css'
 export const Navbar = () => {
   return (
     <div className='nav'>
-      <div className=''>Where in the world</div>
-      <div>hi</div>
+      <div >Where in the world</div>
+      <div>dark Mode Icon</div>
     </div>
   )
 }

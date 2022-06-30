@@ -13,7 +13,7 @@ export const ShowRegions = (props) => {
   }
 
   return (
-    <div>
+    <div style={{ display:'flex' }}>
       <div style={hideWhenVisible}>
         <button onClick={toggleVisiblity}>{props.buttonLabel}</button>
       </div>

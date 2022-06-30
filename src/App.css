@@ -1,35 +1,3 @@
 body{
   margin: 0px;
 }
-
-.nav{
-  display: flex;
-  height: 64px;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 5px 50px 1px rgba(0,0,0,0.10);
-}
-
-.search--box{
-  margin: 40px 0px 0px 40px;
-  background-color: aqua;
-}
-
-.search--box input{
-  height: 30px;
-  width: 400px;
-}
-
-.container{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.box{
-  width: 20%;
-  height: 250px;
-  border: 1px solid red;
-}
-

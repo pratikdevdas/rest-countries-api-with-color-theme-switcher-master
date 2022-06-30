@@ -1,0 +1,7 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px;
+    height: 64px;
+    align-items: center;
+}
