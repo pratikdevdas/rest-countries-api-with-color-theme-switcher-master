@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ShowRegions } from './Toggle'
 import Countries from './Countries'
 import './Region.css'
 const Region = ({ filter }) => {
@@ -8,17 +7,24 @@ const Region = ({ filter }) => {
 
   const region = filter.filter(c => c.region.toLowerCase().includes(regionName.toLowerCase()) )
 
+  console.log(setRegionName)
+  const handleRegion = (event) => {
+    console.log(event.target.value)
+    setRegionName(event.target.value)
+  }
   return(
     <>
-      <ShowRegions buttonLabel='show' buttonLabel2='hide'>
-        <div className='filter--options'>
-          <button onClick={() => setRegionName('america')}>AMERICA</button>
-          <button onClick={() => setRegionName('africa')}>AFRICA</button>
-          <button onClick={() => setRegionName('asia')}>ASIA</button>
-          <button onClick={() => setRegionName('europe')}>EUROPE</button>
-          <button onClick={() => setRegionName('oceania')}>OCEANIA </button>
-        </div>
-      </ShowRegions>
+      <form className='filter--options'>
+        <select onChange={handleRegion}>
+          <option value="">FilterBy region</option>
+          <option value="america">AMERICA</option>
+          <option value="africa">AFRICA</option>
+          <option value="asia">ASIA</option>
+          <option value="europe">EUROPE</option>
+          <option value="oceania">OCEANIA</option>
+        </select>
+        {regionName}
+      </form>
       <div className="country-container">
         <Countries region={region}/>
       </div></>
