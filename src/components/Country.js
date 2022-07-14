@@ -1,41 +1,72 @@
-/* eslint-disable react/jsx-key */
-import React from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-const Country = ({ countries }) => {
-  const name = useParams().id
-  const singleCountryArray = countries.find((n) => n.name.common === name)
+import axios from 'axios'
+import React,{ useEffect,useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+
+const Country = () => {
+  const location = useLocation()
+  const name = location.pathname.split('/')[1]
   const navigate = useNavigate()
+
+  const [country,setCountry] = useState({})
+  useEffect(() => {
+    const getCountry = async() => {
+      try {
+        const res = await axios.get(`https://restcountries.com/v3.1/name/${name.toLowerCase()}?fullText=true`)
+        console.log(res.data,res)
+        setCountry(res.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getCountry()
+  }, [name])
+
+  if (country?.[0]?.name?.common){
+    // optional-chaining-operator to check if data is fetched or not
+    console.log(country[0].name.common)
+  }
 
   const backButton = (event) => {
     event.preventDefault()
     navigate('/')
   }
-  // for (i=1;)
-  console.log(singleCountryArray)
 
-  console.log(countries)
+  if (country?.[0]?.name?.common){
+    return (
+      <div className='country-page page'>
+        <div className='country-page-container'>
+          <button onClick={backButton} className='backButton'>back button</button>
+          <div className='country-containers'>
+            <div className='flag-container'>
+              <img src={country[0].flags.png} alt="" />
+            </div>
+            <div className='country-info'>
+              <div className='country-info-top'>
+                <div>
+                  <h2>{country[0].name.common}</h2>
+                  <p><b>Native Name:</b></p>
+                  <p><b>Populaton:</b></p>
+                  <p><b>Region:</b></p>
+                  <p><b>Sub Region:</b></p>
+                  <p><b>Capital:</b></p>
+                </div>
+                <div>
+                  <p><b>Top Level Domain:</b></p>
+                  <p><b>Currencies:</b></p>
+                  <p><b>Language:</b></p>
 
-  return (
-    <div key={singleCountryArray.name.common}>
-      <button onClick={backButton}>back button</button>
-      <img src={singleCountryArray.flags.png} alt="" />
-      {singleCountryArray.name.common}
-      {/* native name {singleCountryArray.nativeName.spa.common} */}
-      population{singleCountryArray.population}
-      region{singleCountryArray.region}
-      subregion{singleCountryArray.subregion}
-      capital{singleCountryArray.capital}
-      {/* topleveldomain{singleCountryArray.tld[0]} */}
-      {/* currency{singleCountryArray.currencies[0].name} */}
-      {/* languages{singleCountryArray.languages.spa} */}
-      {/* <div>botder countries{singleCountryArray.borders]}</div> */}
-      {/* eslint-disbale-next-line */}
-      {/* <div>{singleCountryArray.borders.map(b => <li>
-        {b}
-      </li>
-      )}</div> */}
-    </div>
-  )
+                </div>
+              </div>
+              <div className='country-info-bottom'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  } else {
+    return <>Loading...</>
+  }
+
 }
 
 export default Country

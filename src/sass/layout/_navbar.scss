@@ -1,0 +1,17 @@
+.nav{
+    height: 70px;
+    background-color: $dark-elements;
+}
+
+.container {
+    max-width: 1300px;
+    display: flex;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    div{
+            margin: 0px 0px;
+    }
+}

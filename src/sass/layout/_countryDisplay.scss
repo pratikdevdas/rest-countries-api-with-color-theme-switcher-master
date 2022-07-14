@@ -1,0 +1,20 @@
+.country-page-layout{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 70px;
+}
+
+.country-containers{ 
+    margin-top: 70px;
+    display: flex;
+    & div {
+        flex: 1;
+    }
+}
+
+.country-info-top{
+    display: flex;
+    & div {
+        flex: 1;
+    }
+}
