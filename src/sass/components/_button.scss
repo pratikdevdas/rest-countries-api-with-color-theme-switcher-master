@@ -1,0 +1,9 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.backButton{
+    background-color: $dark-elements;
+    border: none;
+    box-shadow: 0 0.2rem 1.6rem rgb(0 0 0 / 10%);
+    padding: 15px 40px;
+}

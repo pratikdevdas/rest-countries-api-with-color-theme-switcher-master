@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    font-weight: 400;
+    margin: 0px auto;
+    max-width: 1600px;
+    overflow-x: hidden;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: $dark-background;
+    color: $white;
+    font-size: 16px;
+    line-height: 1.2;
+
+    @include respond-to('tiny'){
+        font-size: 12px;
+    }
+}
+
+a{
+    color: $white;
+    text-decoration: unset ;
+}
+
+
+  

@@ -1,0 +1,27 @@
+
+.sortContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0px;
+    width: 100%;
+    // max-width: 50rem;
+        & input {
+            background-color: $dark-elements;
+            border: none;
+            box-shadow: 0 0.2rem 1.6rem rgb(0 0 0 / 10%);
+            border-radius: 5px;
+            width: 100%;
+            padding: 20px 40px;
+            max-width: 25rem;
+        }
+
+        & select {
+            border: none;
+            box-shadow: 0 0.2rem 1.6rem rgb(0 0 0 / 10%);
+            background-color: $dark-elements;
+            color: inherit;
+            padding: 20px 40px;
+            border-radius: 5px;
+        }
+
+}

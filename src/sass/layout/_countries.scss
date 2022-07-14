@@ -1,11 +1,8 @@
 .countries{
     display: flex;
+    width: 100;
     flex-wrap: wrap;
+    justify-content:  space-between;
     gap: 40px;
     margin: auto;
-}
-
-.box{
-    width: 280px;
-    border-radius: 50px;
 }
