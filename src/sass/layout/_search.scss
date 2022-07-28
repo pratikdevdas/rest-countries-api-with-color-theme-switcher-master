@@ -5,14 +5,22 @@
     padding: 50px 0px;
     width: 100%;
     // max-width: 50rem;
-        & input {
+        & div {
+            display: flex;
             background-color: $dark-elements;
-            border: none;
             box-shadow: 0 0.2rem 1.6rem rgb(0 0 0 / 10%);
             border-radius: 5px;
             width: 100%;
             padding: 20px 40px;
             max-width: 25rem;
+            color: $white;
+            & input {
+            background-color: $dark-elements;
+            border: none;
+            width: 100%;
+            caret-color: $white;
+            color: $white;
+            }
         }
 
         & select {
@@ -23,5 +31,17 @@
             padding: 20px 40px;
             border-radius: 5px;
         }
+        & input::placeholder{
+            color: $white;
+            size: 1rem;
+        }
+         & textarea:focus, input:focus{
+            outline: none;
+        }
 
+}
+
+.search-icon{
+    font-size: 1.2rem;
+    padding-right: 10px;
 }

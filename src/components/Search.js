@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Countries from './Countries'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const Search = ({ countries }) => {
   const [search, setsearch] = useState('')
@@ -23,7 +25,10 @@ const Search = ({ countries }) => {
   return (
     <div className='page'>
       <form className='sortContainer'>
-        <input type="text" placeholder='🔍 search for a country...' onChange={handleChange} />
+        <div>
+          <FontAwesomeIcon icon={faSearch} className='search-icon'/>
+          <input type="text" placeholder='Search for a country...' onChange={handleChange} />
+        </div>
         <select onChange={handleRegion}>
           <option value="">Filter By Region</option>
           <option value="africa">Africa</option>
