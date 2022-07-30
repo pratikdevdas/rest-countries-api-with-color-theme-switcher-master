@@ -16,8 +16,8 @@ const Countries = ({ region }) => {
                 {c.name.common}
               </h3>
               <p><b>Population:</b> {c.population}</p>
-              <p><b>Capital:</b> {c.region}</p>
-              <p><b>Region:</b> {c.capital}</p>
+              <p><b>Region:</b> {c.region}</p>
+              <p><b>Capital:</b> {c.capital}</p>
             </div>
           </Link>
         </div>
