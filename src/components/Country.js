@@ -1,22 +1,25 @@
 import axios from 'axios'
 import React,{ useEffect,useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Country = () => {
-  // const location = useLocation()
+
   const id = useParams().id.toLowerCase()
-  console.log(id, typeof(id))
-  // const name = location.pathname.split('/')[1]
   const navigate = useNavigate()
+
   const [country,setCountry] = useState({})
+  const [borders,setBorders] = useState({})
+
   useEffect(() => {
     const getCountry = async() => {
       try {
-        const res = await axios.get(`https://restcountries.com/v3.1/alpha/${id.toLowerCase()}`)
-        console.log(res)
+        const res = await axios.get(`https://restcountries.com/v3.1/name/${id.toLowerCase()}`)
         setCountry(res.data)
+        const borderValues = res.data[0]?.borders.toString().toLowerCase()
+        const res2 = await axios.get(`https://restcountries.com/v3.1/alpha?codes=${borderValues}`)
+        setBorders(res2.data)
       } catch (error) {
         console.log(error)
       }
@@ -30,36 +33,20 @@ const Country = () => {
     navigate('/')
   }
 
+  // extracting border countries
+  let borderCountryName = []
+  for (let key in borders){
+    borderCountryName.push(borders[key]?.name.common)
+  }
 
   if (country?.[0]?.name?.common){
     // currenct according to api
-    let currencyType, languageType = [], resborders
+    let currencyType, languageType = []
     // Bracket notation has been used
     currencyType = Object.keys(country[0]?.currencies)[0]
-
     for (let properties in country[0].languages){
       languageType.push(country[0].languages[properties])
     }
-
-    let neigbours = country[0]?.borders ? country[0]?.borders.map(n => n.toLowerCase()).toString() : '404'
-    console.log(neigbours)
-
-    // eslint-disable-next-line no-inner-declarations
-    async function dataFetch(fd){
-      try {
-        resborders = await axios.get('https://restcountries.com/v3.1/alpha?codes=col,pe,at')
-        console.log(fd,resborders)
-
-        for(let name in resborders.data){
-          console.log(fd, resborders.data[name].name.common)
-        }
-      } catch (err){
-        console.log(err)
-      }
-    }
-
-    dataFetch('ggfd')
-
     return (
       <div className='country-page page'>
         <div className='country-page-container'>
@@ -88,7 +75,7 @@ const Country = () => {
                 </div>
               </div>
               <div className='country-info-bottom'><b>Border Countries: </b>
-                {country[0]?.borders.map(n => <button  className='backButton' key={n}>{n}</button> )}
+                {borderCountryName.map(n => <Link key={n} to={`/${n}`}>{n}</Link>)}
               </div>
             </div>
           </div>
@@ -98,7 +85,6 @@ const Country = () => {
   } else {
     return <>Loading...</>
   }
-
 }
 
 export default Country
