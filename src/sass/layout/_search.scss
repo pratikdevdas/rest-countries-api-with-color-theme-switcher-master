@@ -38,6 +38,19 @@
          & textarea:focus, input:focus{
             outline: none;
         }
+        @include respond-to('medium'){
+            flex-direction: column;
+            & div {
+                width: auto;
+                margin: 20px;
+            }
+            & select{
+                width: 50%;
+                margin: 20px;
+                padding: 20px 30px;
+            }
+        
+        }
 
 }
 

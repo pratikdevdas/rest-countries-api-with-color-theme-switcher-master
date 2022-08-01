@@ -4,4 +4,10 @@
     justify-content:  space-between;
     gap: 40px;
     margin: auto;
+    @include respond-to('medium') {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        line-height: 1;
+      }
 }

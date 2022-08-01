@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React,{ useEffect,useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link,useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
@@ -15,7 +15,7 @@ const Country = () => {
   useEffect(() => {
     const getCountry = async() => {
       try {
-        const res = await axios.get(`https://restcountries.com/v3.1/name/${id.toLowerCase()}`)
+        const res = await axios.get(`https://restcountries.com/v3.1/alpha/${id.toLowerCase()}`)
         setCountry(res.data)
         const borderValues = res.data[0]?.borders.toString().toLowerCase()
         const res2 = await axios.get(`https://restcountries.com/v3.1/alpha?codes=${borderValues}`)
@@ -34,9 +34,12 @@ const Country = () => {
   }
 
   // extracting border countries
+  // implemented with array taking multiple input (brainstormed this myself :p)
   let borderCountryName = []
   for (let key in borders){
-    borderCountryName.push(borders[key]?.name.common)
+    let countryName = borders[key]?.name.common
+    let countryCode = borders[key]?.cca3.toLowerCase()
+    borderCountryName.push({ countryName, countryCode })
   }
 
   if (country?.[0]?.name?.common){
@@ -47,6 +50,9 @@ const Country = () => {
     for (let properties in country[0].languages){
       languageType.push(country[0].languages[properties])
     }
+
+    let nativeNameType = Object.keys(country[0].name.nativeName)[0]
+
     return (
       <div className='country-page page'>
         <div className='country-page-container'>
@@ -57,11 +63,11 @@ const Country = () => {
             <div className='flag-container'>
               <img src={country[0].flags.png} className='country-flag-single' alt="" />
             </div>
-            <div className='country-info'>
+            <div className='country-inpage-info'>
               <h2>{country[0].name.common}</h2>
               <div className='country-info-top'>
                 <div>
-                  <p><b>Native Name:</b> {country[0].name.nativeName?.kal?.official}</p>
+                  <p><b>Native Name:</b> {country[0].name?.nativeName[nativeNameType]?.common}</p>
                   <p><b>Populaton:</b> {country[0].population}</p>
                   <p><b>Region:</b> {country[0].region}</p>
                   <p><b>Sub Region:</b> {country[0].subregion}</p>
@@ -71,11 +77,10 @@ const Country = () => {
                   <p><b>Top Level Domain:</b> {country[0]?.tld[0]}</p>
                   <p><b>Currencies:</b> {country[0]?.currencies[currencyType]?.name}</p>
                   <p><b>Language:</b> {languageType.map((t,i) => <span key={t}>{t}{i === languageType.length - 1 ? '' : ','} </span>)}</p>
-
                 </div>
               </div>
               <div className='country-info-bottom'><b>Border Countries: </b>
-                {borderCountryName.map(n => <Link key={n} to={`/${n}`}>{n}</Link>)}
+                {borderCountryName.length !== 0 ? borderCountryName.map(n => <Link key={n.countryCode} to={`/${n.countryCode}`} className="borderButton">{n.countryName}</Link>) : <>No Border Countries</>}
               </div>
             </div>
           </div>
