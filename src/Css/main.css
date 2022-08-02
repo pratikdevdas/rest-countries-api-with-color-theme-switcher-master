@@ -1,3 +1,12 @@
+/* In the above piece of code we have used mixin. Mixin is something which takes value from includes.
+  here our mixin name is respond-to, include requires the name reference to send value to minin
+
+  1) Raw Query is a variable which is storing mapped breakpoints from include
+  2) ln:8 is a if statement which is taking raw-query and i. converting the mapped value to string ii. removing quotes form raw query iii. represents the value in string
+  3) some debugging has been shown with the debug command
+  4) the converted raw query is stored in query variable and sent in media queries
+  5) a conditional statement has been put if the given breakpoint include does not exist and also an error is thrown
+*/
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 body {
   box-sizing: border-box;
@@ -5,8 +14,6 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   font-family: "Nunito Sans", sans-serif;
-  background-color: hsl(207deg, 26%, 17%);
-  color: hsl(0deg, 0%, 100%);
   font-size: 14px;
   line-height: 1.2;
   margin: 0;

@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 const Countries = ({ region }) => {
 
-
   return (
     <div className='countries'>
       {region.map((c) => (

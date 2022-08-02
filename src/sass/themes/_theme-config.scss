@@ -1,0 +1,10 @@
+$themes:(
+    light:(
+        my-class-bg: $dark-background,
+        text-color: $dark-text,
+    ),
+    dark:(
+        my-class-bg: $light-backgound,
+        text-color: $light-text,
+    ),
+)
