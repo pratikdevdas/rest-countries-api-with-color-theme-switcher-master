@@ -3,14 +3,13 @@ body {
   box-sizing: border-box;
   padding: 0;
   font-weight: 400;
-  margin: 0px auto;
-  max-width: 1600px;
   overflow-x: hidden;
   font-family: "Nunito Sans", sans-serif;
   background-color: hsl(207deg, 26%, 17%);
   color: hsl(0deg, 0%, 100%);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.2;
+  margin: 0;
 }
 @media (max-width: 375px) {
   body {
@@ -23,13 +22,32 @@ a {
   text-decoration: unset;
 }
 
+h1 {
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: 800;
+}
+
+b {
+  font-weight: 600;
+}
+
 .countries {
   display: flex;
-  width: 100;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 40px;
   margin: auto;
+}
+@media (max-width: 800px) {
+  .countries {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    line-height: 1;
+  }
 }
 
 .nav {
@@ -56,14 +74,22 @@ a {
   padding: 50px 0px;
   width: 100%;
 }
-.sortContainer input {
+.sortContainer div {
+  display: flex;
   background-color: hsl(209deg, 23%, 22%);
-  border: none;
   box-shadow: 0 0.2rem 1.6rem rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   width: 100%;
   padding: 20px 40px;
   max-width: 25rem;
+  color: hsl(0deg, 0%, 100%);
+}
+.sortContainer div input {
+  background-color: hsl(209deg, 23%, 22%);
+  border: none;
+  width: 100%;
+  caret-color: hsl(0deg, 0%, 100%);
+  color: hsl(0deg, 0%, 100%);
 }
 .sortContainer select {
   border: none;
@@ -73,11 +99,99 @@ a {
   padding: 20px 40px;
   border-radius: 5px;
 }
+.sortContainer input::placeholder {
+  color: hsl(0deg, 0%, 100%);
+  size: 1rem;
+}
+.sortContainer textarea:focus, .sortContainer input:focus {
+  outline: none;
+}
+@media (max-width: 800px) {
+  .sortContainer {
+    flex-direction: column;
+  }
+  .sortContainer div {
+    width: auto;
+    margin: 20px;
+  }
+  .sortContainer select {
+    width: 50%;
+    margin: 20px;
+    padding: 20px 20px;
+  }
+}
 
-.country-page-layout {
+.search-icon {
+  font-size: 1.2rem;
+  padding-right: 10px;
+}
+
+.country-containers {
+  margin-top: 80px;
   display: flex;
-  justify-content: space-between;
-  padding-top: 70px;
+  gap: 10%;
+}
+.country-containers div {
+  flex: 1;
+}
+@media (max-width: 800px) {
+  .country-containers {
+    flex-direction: column;
+    line-height: 1;
+  }
+}
+
+.flag-container {
+  margin: auto;
+}
+.flag-container img {
+  width: 85%;
+}
+@media (max-width: 800px) {
+  .flag-container {
+    margin: auto;
+  }
+}
+.flag-container img {
+  width: 100%;
+}
+
+.country-inpage-info p {
+  line-height: 0.8;
+}
+@media (max-width: 800px) {
+  .country-inpage-info {
+    width: 95%;
+    margin: auto;
+  }
+  .country-inpage-info p {
+    width: 100%;
+  }
+}
+
+.country-info-top {
+  display: flex;
+}
+.country-info-top div {
+  flex: 1;
+}
+@media (max-width: 800px) {
+  .country-info-top {
+    flex-direction: column;
+  }
+}
+
+.country-info-bottom {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.country-info-bottom b {
+  margin-right: 20px;
+}
+.country-info-bottom a {
+  margin: 10px 5px;
 }
 
 .backButton {
@@ -85,6 +199,28 @@ a {
   border: none;
   box-shadow: 0 0.2rem 1.6rem rgba(0, 0, 0, 0.1);
   padding: 15px 40px;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.backButton span {
+  padding-left: 10px;
+}
+
+.borderButton {
+  background-color: hsl(209deg, 23%, 22%);
+  border: none;
+  box-shadow: 0 0.2rem 1.6rem rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.borderButton span {
+  padding-left: 10px;
 }
 
 .box {
@@ -117,7 +253,8 @@ a {
 }
 
 .country-page {
-  width: 100%;
+  width: 90%;
   height: 70vh;
   padding-top: 70px;
+  font-size: 16px;
 }
