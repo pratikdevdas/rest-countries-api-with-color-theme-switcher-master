@@ -16,6 +16,7 @@ Users should be able to:
 ![](./desktop-rm.gif)
 
 **Mobile**
+
 ![](./mobile-rm.gif)
 
 
