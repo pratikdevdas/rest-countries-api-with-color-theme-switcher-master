@@ -2,6 +2,7 @@
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
 
+$theme-map: null;
 // BreakpointManager
 @mixin respond-to($breakpoint) {
     $raw-query: map-get($breakpoints, $breakpoint);
@@ -12,9 +13,9 @@
         inspect($raw-query)
       );
 
-      @debug "checfdk: #{$query}"; //string 
-      @debug type-of($raw-query);
-      @debug $raw-query;
+      // @debug "checfdk: #{$query}"; //string 
+      // @debug type-of($raw-query);
+      // @debug $raw-query;
 
       @media #{$query} {
         @content;
@@ -36,14 +37,35 @@
   */
 
   // ThemeMixin
+
   // https://sass-lang.com/documentation/at-rules/control/each#with-maps
-  @mixin themify($themes) {
-    @each $theme, $map in $themes{
-      .theme-#{$theme} & {
+  $text--light: black;
+  $text--dark: white;
+  $bg--light: white;
+  $bg--dark: black;
+
+  $themes: (
+          light: (
+                  bg: $light-background,
+                  text: $light-text,
+          ),
+          dark: (
+                  bg: $dark-background,
+                  text: $dark-text,
+          ),
+  );
+  
+  @mixin themed() {
+    @each $theme, $map in $themes {
+      .theme--#{$theme} & {
+        @debug $theme;
         $theme-map: () !global;
         @each $key, $submap in $map {
+          
           $value: map-get(map-get($themes, $theme), '#{$key}');
-          $theme-map: map-keys($theme-map,($key: $value)) !global;
+          @debug $value;
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+          @debug $theme-map;
         }
         @content;
         $theme-map: null !global;
@@ -51,6 +73,18 @@
     }
   }
 
-  @function themed($key){
-    @return map-get($theme-map, $key )
+  
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
+
+
+  .myClass {
+    font-family: sans-serif;
+  
+    @include themed() {
+      color: time('text');
+      background: time('bg');
+    }
   }
+  

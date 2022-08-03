@@ -8,6 +8,18 @@
   5) a conditional statement has been put if the given breakpoint include does not exist and also an error is thrown
 */
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+.myClass {
+  font-family: sans-serif;
+}
+.theme--light .myClass {
+  color: time("text");
+  background: time("bg");
+}
+.theme--dark .myClass {
+  color: time("text");
+  background: time("bg");
+}
+
 body {
   box-sizing: border-box;
   padding: 0;
@@ -15,6 +27,8 @@ body {
   overflow-x: hidden;
   font-family: "Nunito Sans", sans-serif;
   font-size: 14px;
+  background-color: hsl(207deg, 26%, 17%);
+  color: white;
   line-height: 1.2;
   margin: 0;
 }
