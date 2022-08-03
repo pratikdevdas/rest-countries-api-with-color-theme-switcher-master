@@ -26,7 +26,7 @@ function App() {
   , [])
   return (
     <ThemeProvider>
-      <div className='myClassBackground' >
+      <div className='myClassBackground full' >
         <Router>
           <Navbar/>
           <Routes>
