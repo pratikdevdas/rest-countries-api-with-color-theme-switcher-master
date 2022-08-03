@@ -33,3 +33,19 @@ $breakpoints: (
   'medium': (max-width: 800px),
   'large': (max-width: 1400px),
 );
+
+// theme variables
+$themes: (
+          light: (
+                  bg: $light-background,
+                  text: $light-text,
+                  elements: $light-elements,
+                  placeholder: $light-input,
+          ),
+          dark: (
+                  bg: $dark-background,
+                  text: $dark-text,
+                  elements: $dark-elements,
+                  placeholder: $white,
+          ),
+  );

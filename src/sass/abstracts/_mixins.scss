@@ -37,26 +37,10 @@ $theme-map: null;
   */
 
   // ThemeMixin
-
   // https://sass-lang.com/documentation/at-rules/control/each#with-maps
-  $text--light: black;
-  $text--dark: white;
-  $bg--light: white;
-  $bg--dark: black;
-
-  $themes: (
-          light: (
-                  bg: $light-background,
-                  text: $light-text,
-          ),
-          dark: (
-                  bg: $dark-background,
-                  text: $dark-text,
-          ),
-  );
-  
   @mixin themed() {
     @each $theme, $map in $themes {
+      // imp below
       .theme--#{$theme} & {
         @debug $theme;
         $theme-map: () !global;
@@ -70,21 +54,6 @@ $theme-map: null;
         @content;
         $theme-map: null !global;
       }
-    }
-  }
-
-  
-@function t($key) {
-  @return map-get($theme-map, $key);
-}
-
-
-  .myClass {
-    font-family: sans-serif;
-  
-    @include themed() {
-      color: time('text');
-      background: time('bg');
     }
   }
   

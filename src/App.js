@@ -5,7 +5,6 @@ import './sass/main.scss'
 import { Navbar } from './components/Navbar'
 import Country from './components/Country'
 import Search from './components/Search'
-import ThemeSetter from './ThemeSetter'
 import ThemeProvider from './context/ThemeProvider'
 
 import {
@@ -27,9 +26,8 @@ function App() {
   , [])
   return (
     <ThemeProvider>
-      <div className='myClass'>
+      <div className='myClassBackground full' >
         <Router>
-          <ThemeSetter />
           <Navbar/>
           <Routes>
             <Route path="/:id" element={<Country countries={countries}/>} />
