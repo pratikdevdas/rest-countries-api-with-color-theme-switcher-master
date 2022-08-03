@@ -1,0 +1,24 @@
+.myClassBackground {
+    @include themed() {
+      color: theme('text');
+      background: theme('bg');
+    }
+  }
+  
+  .myClassElement {
+    @include themed() {
+      color: theme('text');
+      background: theme('elements');
+    }
+  }
+
+  .myClassPlaceHolder{
+    @include themed() {
+        color: theme('placeholder');
+    }
+  }
+  .myClassPlaceHolder::placeholder{
+    @include themed() {
+        color: theme('placeholder');
+    }
+  }

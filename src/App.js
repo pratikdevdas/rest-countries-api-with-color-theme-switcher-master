@@ -5,6 +5,8 @@ import './sass/main.scss'
 import { Navbar } from './components/Navbar'
 import Country from './components/Country'
 import Search from './components/Search'
+import ThemeProvider from './context/ThemeProvider'
+
 import {
   BrowserRouter as Router,
   Routes, Route
@@ -23,16 +25,20 @@ function App() {
   }
   , [])
   return (
-    <div>
-      <Router>
-        <Navbar/>
-        <Routes>
-          <Route path="/:id" element={<Country countries={countries}/>} />
-          <Route path="/" element={<Search countries={countries}/>}/>
-        </Routes>
-      </Router>
-    </div>
+    <ThemeProvider>
+      <div className='myClassBackground full' >
+        <Router>
+          <Navbar/>
+          <Routes>
+            <Route path="/:id" element={<Country countries={countries}/>} />
+            <Route path="/" element={<Search countries={countries}/>}/>
+          </Routes>
+        </Router>
+      </div>
+    </ThemeProvider>
+
   )
 }
 
 export default App
+

@@ -2,12 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 const Countries = ({ region }) => {
 
-
   return (
     <div className='countries'>
       {region.map((c) => (
-        <div className="box" key={c.cca3}>
-          <Link to={`${c.cca3.toLowerCase()}`}>
+        <div className="box myClassElement" key={c.cca3}>
+          <Link to={`${c.cca3.toLowerCase()}`} className="myClassElement">
             <div>
               <img src={c.flags.png} alt="country-flag" className='country-flag'/>
             </div>

@@ -16,20 +16,27 @@ const Search = ({ countries }) => {
     c.name.common.toLowerCase().includes(search.toLowerCase())
   )
 
-  const region = filter.filter(c => c.region.toLowerCase().includes(regionName.toLowerCase()) )
+  const region = filter.filter((c) =>
+    c.region.toLowerCase().includes(regionName.toLowerCase())
+  )
 
   const handleRegion = (event) => {
     setRegionName(event.target.value)
   }
 
   return (
-    <div className='page'>
-      <form className='sortContainer'>
-        <div>
-          <FontAwesomeIcon icon={faSearch} className='search-icon'/>
-          <input type="text" placeholder='Search for a country...' onChange={handleChange} />
+    <div className="page">
+      <form className="sortContainer">
+        <div className='myClassElement'>
+          <FontAwesomeIcon icon={faSearch} className="search-icon myClassPlaceHolder" />
+          <input
+            type="text"
+            className='myClassElement myClassPlaceHolder'
+            placeholder="Search for a country..."
+            onChange={handleChange}
+          />
         </div>
-        <select onChange={handleRegion}>
+        <select onChange={handleRegion} className='myClassElement'>
           <option value="">Filter By Region</option>
           <option value="africa">Africa</option>
           <option value="america">America</option>
@@ -39,7 +46,7 @@ const Search = ({ countries }) => {
         </select>
       </form>
       <div className="country-container">
-        <Countries region={region}/>
+        <Countries region={region} />
       </div>
     </div>
   )

@@ -2,13 +2,11 @@
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
 .backButton{
-    background-color: $dark-elements;
     border: none;
     box-shadow: 0 0.2rem 1.6rem rgb(0 0 0 / 10%);
     padding: 15px 40px;
     font-size: 16px;
     border-radius: 10px;
-    color: white;
     cursor: pointer;
     & span {
         padding-left: 10px;
@@ -16,16 +14,19 @@
 }
 
 .borderButton{
-    background-color: $dark-elements;
     border: none;
     box-shadow: 0 0.2rem 1.6rem rgb(0 0 0 / 10%);
     padding: 10px 20px;
     margin-right: 10px;
     font-size: 16px;
     border-radius: 10px;
-    color: white;
     cursor: pointer;
     & span {
         padding-left: 10px;
     }
+}
+
+.darkModeText{
+    border: none;
+    font-weight: 600;
 }

@@ -1,18 +1,25 @@
+/* In the above piece of code we have used mixin. Mixin is something which takes value from includes.
+  here our mixin name is respond-to, include requires the name reference to send value to minin
+
+  1) Raw Query is a variable which is storing mapped breakpoints from include
+  2) ln:8 is a if statement which is taking raw-query and i. converting the mapped value to string ii. removing quotes form raw query iii. represents the value in string
+  3) some debugging has been shown with the debug command
+  4) the converted raw query is stored in query variable and sent in media queries
+  5) a conditional statement has been put if the given breakpoint include does not exist and also an error is thrown
+*/
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
-body {
+body, button {
   box-sizing: border-box;
   padding: 0;
   font-weight: 400;
   overflow-x: hidden;
   font-family: "Nunito Sans", sans-serif;
-  background-color: hsl(207deg, 26%, 17%);
-  color: hsl(0deg, 0%, 100%);
   font-size: 14px;
   line-height: 1.2;
   margin: 0;
 }
 @media (max-width: 375px) {
-  body {
+  body, button {
     font-size: 12px;
   }
 }
@@ -32,6 +39,10 @@ h2 {
 
 b {
   font-weight: 600;
+}
+
+.full {
+  min-height: 100vh;
 }
 
 .countries {
@@ -76,32 +87,22 @@ b {
 }
 .sortContainer div {
   display: flex;
-  background-color: hsl(209deg, 23%, 22%);
   box-shadow: 0 0.2rem 1.6rem rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   width: 100%;
   padding: 20px 40px;
   max-width: 25rem;
-  color: hsl(0deg, 0%, 100%);
 }
 .sortContainer div input {
-  background-color: hsl(209deg, 23%, 22%);
   border: none;
   width: 100%;
-  caret-color: hsl(0deg, 0%, 100%);
-  color: hsl(0deg, 0%, 100%);
 }
 .sortContainer select {
   border: none;
   box-shadow: 0 0.2rem 1.6rem rgba(0, 0, 0, 0.1);
-  background-color: hsl(209deg, 23%, 22%);
   color: inherit;
   padding: 20px 40px;
   border-radius: 5px;
-}
-.sortContainer input::placeholder {
-  color: hsl(0deg, 0%, 100%);
-  size: 1rem;
 }
 .sortContainer textarea:focus, .sortContainer input:focus {
   outline: none;
@@ -122,7 +123,7 @@ b {
 }
 
 .search-icon {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-right: 10px;
 }
 
@@ -195,13 +196,11 @@ b {
 }
 
 .backButton {
-  background-color: hsl(209deg, 23%, 22%);
   border: none;
   box-shadow: 0 0.2rem 1.6rem rgba(0, 0, 0, 0.1);
   padding: 15px 40px;
   font-size: 16px;
   border-radius: 10px;
-  color: white;
   cursor: pointer;
 }
 .backButton span {
@@ -209,18 +208,21 @@ b {
 }
 
 .borderButton {
-  background-color: hsl(209deg, 23%, 22%);
   border: none;
   box-shadow: 0 0.2rem 1.6rem rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
   margin-right: 10px;
   font-size: 16px;
   border-radius: 10px;
-  color: white;
   cursor: pointer;
 }
 .borderButton span {
   padding-left: 10px;
+}
+
+.darkModeText {
+  border: none;
+  font-weight: 600;
 }
 
 .box {
@@ -254,7 +256,38 @@ b {
 
 .country-page {
   width: 90%;
-  height: 70vh;
   padding-top: 70px;
   font-size: 16px;
+}
+
+.theme--light .myClassBackground {
+  color: hsl(200deg, 15%, 8%);
+  background: hsl(0deg, 0%, 98%);
+}
+.theme--dark .myClassBackground {
+  color: hsl(0deg, 0%, 100%);
+  background: hsl(207deg, 26%, 17%);
+}
+
+.theme--light .myClassElement {
+  color: hsl(200deg, 15%, 8%);
+  background: hsl(0deg, 0%, 100%);
+}
+.theme--dark .myClassElement {
+  color: hsl(0deg, 0%, 100%);
+  background: hsl(209deg, 23%, 22%);
+}
+
+.theme--light .myClassPlaceHolder {
+  color: hsl(0deg, 0%, 52%);
+}
+.theme--dark .myClassPlaceHolder {
+  color: hsl(0deg, 0%, 100%);
+}
+
+.theme--light .myClassPlaceHolder::placeholder {
+  color: hsl(0deg, 0%, 52%);
+}
+.theme--dark .myClassPlaceHolder::placeholder {
+  color: hsl(0deg, 0%, 100%);
 }

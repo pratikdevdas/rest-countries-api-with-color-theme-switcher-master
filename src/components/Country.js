@@ -3,6 +3,7 @@ import React,{ useEffect,useState } from 'react'
 import { Link,useNavigate, useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+// import { faMoon } from '@fortawesome/free-regular-svg-icons'
 
 const Country = () => {
 
@@ -56,7 +57,7 @@ const Country = () => {
     return (
       <div className='country-page page'>
         <div className='country-page-container'>
-          <button onClick={backButton} className='backButton'>
+          <button onClick={backButton} className='backButton myClassElement'>
             <FontAwesomeIcon icon={faArrowLeft}/>
             <span>back</span> </button>
           <div className='country-containers'>
@@ -80,7 +81,7 @@ const Country = () => {
                 </div>
               </div>
               <div className='country-info-bottom'><b>Border Countries: </b>
-                {borderCountryName.length !== 0 ? borderCountryName.map(n => <Link key={n.countryCode} to={`/${n.countryCode}`} className="borderButton">{n.countryName}</Link>) : <>No Border Countries</>}
+                {borderCountryName.length !== 0 ? borderCountryName.map(n => <Link key={n.countryCode} to={`/${n.countryCode}`} className="borderButton myClassElement">{n.countryName}</Link>) : <>No Border Countries</>}
               </div>
             </div>
           </div>
