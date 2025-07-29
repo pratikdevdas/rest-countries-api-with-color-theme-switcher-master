@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get('https://restcountries.com/v3.1/all')
+      const res = await axios.get('https://restcountries.com/v3.1/all?fields=name,flags,cca3,population,region,capital')
       setcountries(res.data)
     }
     fetchData()
